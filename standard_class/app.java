@@ -1,28 +1,28 @@
 public class App {
     public static void main(String[] args) {
 
-        // Creates a new object named "Knight" from Character class
-        Character knight = new Character(10, 5, 0, "Chen");
-        // Calls the sayMyName method
-        knight.sayMyName();
+        Character archer = new Character();
 
-        // Creates a new object named "mage" from Character class
-        Character mage = new Character(0, 5, 10, "Akasha");
-        // Calls the sayMyName method
-        mage.sayMyName();
-
-        // Creates a new object named "mage" from Character class
-        Character thief = new Character(5, 10, 0, "Gondar");
-        // Calls the sayMyName method
-        thief.sayMyName();
+        archer.strength = 6;
+        archer.agility = 7;
+        archer.intelligence = 5;
+        archer.name = "SovaDiff";
+        archer.sayMyStrength();
+        archer.sayMyAgility();
+        archer.sayMyIntelligence();
+        archer.sayMyName();
     
-        Character archer = new Character(5, 10, 5, "miyaa")
-        arhcer.sayMyName():
-        
-        Character priest = new Character(1, 1, 10, "Fr. Aljean")
-        priest.sayMyName():
-            
-        Character god = new Character (10, 10, 5, "SnoopDogg")
-        god.sayMyName()
-        }
+        Character priest = new Character();
+
+        priest.strength = 1;
+        priest.agility = 3;
+        priest.intelligence = 10;
+        priest.name = "Merci";
+        priest.sayMyName();
+        priest.sayMyStrength();
+        priest.sayMyAgility();
+        priest.sayMyIntelligence();
+        priest.sayMyName();
+
     }
+}
