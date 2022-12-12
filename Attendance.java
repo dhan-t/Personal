@@ -65,3 +65,6 @@ public class Attendance {
         }
     }
 }
+
+
+// We were tasked to remove elements in an array
