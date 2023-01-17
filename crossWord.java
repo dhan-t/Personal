@@ -1,4 +1,4 @@
-public class attendance1 {
+public class crossWord {
     public static void main(String[] args) {
 
         char[][] crossWord = {
