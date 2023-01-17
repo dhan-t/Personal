@@ -2,14 +2,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        /*
-         * WORDS:
-         * SLAM, TILE, EATS, PROS,
-         * STEP, LIAR, ALTO, MESS,
-         * PETS, RAIL, SEM, ALT
-         * PALM, PAL, SITS, SIT
-         * 
-         */
+        
         char[][] crossWord = {
                 { 'S', 'L', 'A', 'M' },
                 { 'T', 'I', 'L', 'E' },
@@ -75,3 +68,11 @@ public class App {
 }
 
 //NEEDS REVISION AND CLEANING
+/*
+         * WORDS:
+         * SLAM, TILE, EATS, PROS,
+         * STEP, LIAR, ALTO, MESS,
+         * PETS, RAIL, SEM, ALT
+         * PALM, PAL, SITS, SIT
+         * 
+         */
