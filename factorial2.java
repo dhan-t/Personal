@@ -40,7 +40,7 @@ import java.io.*;
 import java.math.*;
 import java.text.*;
 
-public class factorial1 {
+public class factorial2 {
         public static void main(String[] args) {
 
 // Creates a new scanner object to read input from the user.
