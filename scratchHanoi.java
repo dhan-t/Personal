@@ -58,17 +58,20 @@ public class App {
                 // numDisk variable.
                 int numDisk = sc.nextInt();
 
+                // Prints the line below, factoring user input.
+                System.out.println("\nThe solution to a " + numDisk + " disk TOH is:");
+
                 // Calls the "towerOfHanoi" method
-                System.out.println("\nThe solution to a " + numDisk
-                                + " disk TOH is:");
                 towerOfHanoi(numDisk, 'A', 'B', 'C');
-                sc.close();
 
+                // Used to print out the solution as to how many moves one needs to make to solve ToH.
                 double powerOf = (Math.pow(2, numDisk) - 1);
-
                 System.out.println("\nWhy did it have " + powerOf + " moves?");
+
+                // Prints out the formula in the terminal for users to see.
                 System.out.println("Because the amount of moves is to be determined by 2^n-1 or 2 to the power of 'n'/amount of disks, minus 1");
 
+                // Writing into a txt file in the same folder.
                 FileWriter fw = new FileWriter("TowerOfHanoi_Results.txt");
                 BufferedWriter bw = new BufferedWriter(fw);
 
@@ -79,6 +82,8 @@ public class App {
                 
                 // Closes the file.
                 bw.close();
+                // Closes the scanner.
+                sc.close();
 
         }
 
@@ -87,15 +92,24 @@ public class App {
 
                 // Base case.
                 if (numDisk == 1) {
+                        /*
+                         * Rods and TOP1 Shows what the variables are like BEFORE printing out the sentence.
+                         * Rods and TOP2 Shows it after printing the sentence.
+                         * 
+                         * This is used for tracking the code, and to figure out how it loops.
+                         * 
+                         */
+
                         System.out.println(firstRod + " TOP1");
                         System.out.println(secondRod + " TOP1");
                         System.out.println(thirdRod + " TOP1");
-                        System.out.println("<" + movesMade + "> IF PRINT (1) from rod [" + firstRod + "] to rod {"
-                                        + thirdRod + "}");
+                        System.out.println("<" + movesMade + "> IF PRINT (1) from rod [" + firstRod + "] to rod {" + thirdRod + "}");
                         System.out.println("Base case");
                         System.out.println(firstRod + " TOP2");
                         System.out.println(secondRod + " TOP2");
                         System.out.println(thirdRod + " TOP2");
+
+                        // movesMade is the variable used to track how many moves has been made, this is for readabilty.
                         movesMade++;
 
                 } else{
@@ -104,30 +118,25 @@ public class App {
                          * 
                          * The first dimension is the first method call at the top, where
                          * 
+                         * towerOfHanoi method is called when numDisk != 1, and it loops until it is = 1.
+                         * This is done by the method call where numDisk - 1.
                          * 
-                         * If numDisk != 1, towerOfHanoi method is called again, but this time numDisk -1.
-                         * 
-                         * It goes back to line, if still not satisfied, it calls the method again until numDisk == 1.
-                         * 
-                         * numDisk == 1? line 84 prints. BUT if you check the method call, third_rod and second_rod switched place.
-                         * 
-                         * After line 93 prints, the code runs again at line 98.
+                         * Factoring index changes at the method call when else is ran, firstRod[A], thirdRod[C], secondRod[B].
                          *
-                         * Since third_rod and second_rod switch, smallest disk is at rod b. (As per how
-                         * line 99 variables are put)
-                         * 
                          */
                         System.out.println("First call");
                         towerOfHanoi(numDisk - 1, firstRod, thirdRod, secondRod);
 
-                        // This line prints the numDisk to go to rod [B](former third rod) becuase of
-                        // variable change.
-                        System.out.println("<" + movesMade + "> ELSE PRINT (" + numDisk + ") from rod [" + firstRod
-                                        + "] to rod {" + thirdRod + "}");
+
+                        System.out.println("<" + movesMade + "> ELSE PRINT (" + numDisk + ") from rod [" + firstRod + "] to rod {" + thirdRod + "}");
+
+                        // Prints out rod + MID to see what the rod Values are currently. 
                         System.out.println(firstRod + " MID");
                         System.out.println(secondRod + " MID");
                         System.out.println(thirdRod + " MID");
+
                         movesMade++;
+
                         /*
                          * // Another method call because it is not finished.
                          * // This time the first rod is [B] and second rod is [A], third rod remains.
@@ -150,4 +159,10 @@ public class App {
                 }
         }
 }
-// 2^n-1 (2x2x2 = 8 - 1 = 7)
+/*
+ * 2^n-1 (2x2x2 = 8 - 1 = 7)
+ * 
+ *  Use multi dimensions when explaining.
+ * 
+ * 
+ */
