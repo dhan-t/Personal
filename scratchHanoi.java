@@ -43,15 +43,12 @@ public class App {
 
                 // Prints out the name of the program and the rules to the game TOH.
                 System.out.println("<Tower of Hanoi Solution> \nThe rules are:");
-                System.out.println(
-                                "(1) You can only move one disk at a time. \n(2) You cannot place a bigger disk onto a smaller one.\n(3) You can only move one disk.\n");
+                System.out.println("(1) You can only move one disk at a time. \n(2) You cannot place a bigger disk onto a smaller one.\n(3) You can only move one disk.\n");
 
-                // Prompts the user to input the desired number of disks and attaches it to the
-                // "numDisk" variable.
+                // Prompts the user to input the desired number of disks and attaches it to the "numDisk" variable.
                 System.out.print("Enter the number of disk(s): ");
 
-                // Validates user input. If input is not an integer, it loops until an integer
-                // is entered.
+                // Validates user input. If input is not an integer, it loops until an integer is entered.
                 while (!sc.hasNextInt()) {
                         System.out.println("Invalid input! Please enter a number.\n");
                         sc.next();
@@ -70,48 +67,57 @@ public class App {
                 double powerOf = (Math.pow(2, numDisk) - 1);
 
                 System.out.println("\nWhy did it have " + powerOf + " moves?");
-                System.out.println(
-                                "Because the amount of moves is to be determined by 2^n-1 or 2 to the power of 'n'/amount of disks, minus 1");
+                System.out.println("Because the amount of moves is to be determined by 2^n-1 or 2 to the power of 'n'/amount of disks, minus 1");
+
+                FileWriter fw = new FileWriter("TowerOfHanoi_Results.txt");
+                BufferedWriter bw = new BufferedWriter(fw);
+
+                // Writes to the file the number of disks and moves made.
+                bw.write("Number of disks: " + numDisk + "\n");
+                bw.write("Number of moves made: " + movesMade + "\n");
+                bw.write("Formula: 2^n - 1: " + powerOf + " moves" + "\n");
+                
+                // Closes the file.
+                bw.close();
 
         }
 
         // Recursive method
-        public static void towerOfHanoi(int numDisk, char firstRod, char secondRod, char thirdRod)
-                        throws IOException {
+        public static void towerOfHanoi(int numDisk, char firstRod, char secondRod, char thirdRod) throws IOException {
 
                 // Base case.
                 if (numDisk == 1) {
-                        System.out.println(firstRod + " TOP");
-                        System.out.println(secondRod + " TOP");
-                        System.out.println(thirdRod + " TOP");
+                        System.out.println(firstRod + " TOP1");
+                        System.out.println(secondRod + " TOP1");
+                        System.out.println(thirdRod + " TOP1");
                         System.out.println("<" + movesMade + "> IF PRINT (1) from rod [" + firstRod + "] to rod {"
                                         + thirdRod + "}");
                         System.out.println("Base case");
-                        System.out.println(firstRod + " TOP");
-                        System.out.println(secondRod + " TOP");
-                        System.out.println(thirdRod + " TOP");
+                        System.out.println(firstRod + " TOP2");
+                        System.out.println(secondRod + " TOP2");
+                        System.out.println(thirdRod + " TOP2");
                         movesMade++;
 
-                } else {
+                } else{
                         /*
-                         * // If numDisk != 1, towerOfHanoi method is called again, but this time
-                         * numDisk -
-                         * // 1.
+                         * Think of it as a multi dimension thing.
                          * 
-                         * // It goes back to line 82, if still not satisfied, it calls the method again
-                         * // until numDisk == 1.
+                         * The first dimension is the first method call at the top, where
                          * 
-                         * // numDisk == 1? line 84 prints. BUT if you check the method call, third_rod
-                         * and
-                         * // second_rod switched place.
                          * 
-                         * // After line 93 prints, the code runs again at line 98.
+                         * If numDisk != 1, towerOfHanoi method is called again, but this time numDisk -1.
                          * 
-                         * // Since third_rod and second_rod switch, smallest disk is at rod b. (As per
-                         * how
-                         * // line 99 variables are put)
+                         * It goes back to line, if still not satisfied, it calls the method again until numDisk == 1.
+                         * 
+                         * numDisk == 1? line 84 prints. BUT if you check the method call, third_rod and second_rod switched place.
+                         * 
+                         * After line 93 prints, the code runs again at line 98.
+                         *
+                         * Since third_rod and second_rod switch, smallest disk is at rod b. (As per how
+                         * line 99 variables are put)
+                         * 
                          */
-                        System.out.println("CHECK");
+                        System.out.println("First call");
                         towerOfHanoi(numDisk - 1, firstRod, thirdRod, secondRod);
 
                         // This line prints the numDisk to go to rod [B](former third rod) becuase of
@@ -130,7 +136,12 @@ public class App {
                          * // Line 83 prints but, first rod is now [B], and it moves to rod [c]
                          */
 
-                        System.out.println("omsim");
+                        System.out.println("Second call");
+
+                        // Why rod[C] is printed WHEN firstRod is called? Because at line 114 thirdRod
+                        // is at 2nd index call.
+                        // Why rod[B] is printed WHEN thirdRod is called? Because third rod is at 3rd
+                        // index at method call.
 
                         towerOfHanoi(numDisk - 1, secondRod, firstRod, thirdRod);
                         System.out.println(firstRod + " BOT");
@@ -139,5 +150,4 @@ public class App {
                 }
         }
 }
-
 // 2^n-1 (2x2x2 = 8 - 1 = 7)
