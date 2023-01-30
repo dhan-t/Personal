@@ -9,7 +9,7 @@
  *  Prompts users to input the number of disk they want to know the solution to.
  * 
  * Output:
- *  Program prints out the solution for the user based on the number of disks the latter inputted.
+ *  Program prints out the solution for the user based on the number of disks the latter inputed.
  * 
  * Error Handling:
  *  Before solution starts, the user input is checked if it is an integer, if not the user will be asked again to make another input.
@@ -18,10 +18,10 @@
  * Additional Notes:
  * - This program create a new file or open an existing one using the 'FileWriter' class and the 'BufferedWriter'class
  * - This program uses the 'write()' method to write the solution string to the file.
- * - In the methods, check if the number of discs is 1. If it is, simply move the disc from the first_pole to the second_pole and return.
- * - If the number of disks is greater than 1, use recursion to move the top n-1 disks from the first_pole to the third_pole.
- * - Move the last remaining disk from the first_pole to the second_pole.
- * - This program uses recursion to move the n-1 disks from the third_pole to the second_pole.
+ * - In the methods, check if the number of discs is 1. If it is, simply move the disc from the firstRod to the secondRod and return.
+ * - If the number of disks is greater than 1, use recursion to move the top n-1 disks from the firstRod to the thirdRod.
+ * - Move the last remaining disk from the firstRod to the second_pole.
+ * - This program uses recursion to move the n-1 disks from the thirdRod to the secondRod.
  * 
  * @author      John Angelo A. Basilio
  * @author      Dhan Micheal L. Tamparong
@@ -62,6 +62,7 @@ public class App {
                 System.out.println("\nThe solution to a " + numDisk + " disk TOH is:");
 
                 // Calls the "towerOfHanoi" method
+                // First recursive method call.
                 towerOfHanoi(numDisk, 'A', 'B', 'C');
 
                 // Used to print out the solution as to how many moves one needs to make to solve ToH.
@@ -90,13 +91,22 @@ public class App {
         // Recursive method
         public static void towerOfHanoi(int numDisk, char firstRod, char secondRod, char thirdRod) throws IOException {
 
-                // Base case.
+        		/*
+        		 * This is where the first method call starts.
+        		 * If numDisk != 1, it goes to else and subtracts 1 until numDisk == 1.
+        		 *
+        		 * Once numDisk == 1, the code in (if) prints. 
+        		 *
+        		 * It then proceeds to run the code below the second recursive method  call
+        		 *
+        		 */
+        	        	
                 if (numDisk == 1) {
                         /*
-                         * Rods and TOP1 Shows what the variables are like BEFORE printing out the sentence.
-                         * Rods and TOP2 Shows it after printing the sentence.
+                         * xRods and TOP1 Shows what the variables are stored BEFORE printing out the sentence.
+                         * xRods and TOP2 Shows it after printing the sentence.
                          * 
-                         * This is used for tracking the code, and to figure out how it loops.
+                         * This is used for tracking the code, and to figure out how and where it loops.
                          * 
                          */
 
@@ -109,49 +119,42 @@ public class App {
                         System.out.println(secondRod + " TOP2");
                         System.out.println(thirdRod + " TOP2");
 
-                        // movesMade is the variable used to track how many moves has been made, this is for readabilty.
+                        // movesMade is the variable used to track how many moves has been made, this is for readability.
                         movesMade++;
 
                 } else{
                         /*
-                         * Think of it as a multi dimension thing.
+                         * Think of it as a multi-dimension process.
                          * 
-                         * The first dimension is the first method call at the top, where
+                         * The first dimension is the first method call at the top, where the variables are not switched
                          * 
-                         * towerOfHanoi method is called when numDisk != 1, and it loops until it is = 1.
-                         * This is done by the method call where numDisk - 1.
+                         * Second method is called when numDisk != 1, and it loops until it is = 1 ---Since 2ndMethod has a process of numDisk - 1.
                          * 
-                         * Factoring index changes at the method call when else is ran, firstRod[A], thirdRod[C], secondRod[B].
+                         * Factoring index changes at the method call when (else) is ran, firstRod[A], thirdRod[C], secondRod[B].
                          *
                          */
                         System.out.println("First call");
+                        
+                        // Second recursive method call.
                         towerOfHanoi(numDisk - 1, firstRod, thirdRod, secondRod);
-
-
+                        
                         System.out.println("<" + movesMade + "> ELSE PRINT (" + numDisk + ") from rod [" + firstRod + "] to rod {" + thirdRod + "}");
 
-                        // Prints out rod + MID to see what the rod Values are currently. 
+                        // Prints out xRods + MID to see what the rod Values are currently. 
                         System.out.println(firstRod + " MID");
                         System.out.println(secondRod + " MID");
                         System.out.println(thirdRod + " MID");
 
+                        // Increment in move counter.
                         movesMade++;
 
-                        /*
-                         * // Another method call because it is not finished.
-                         * // This time the first rod is [B] and second rod is [A], third rod remains.
-                         * // Line 83 starts again, this time factoring variable change. (it loops again
-                         * // until numDisk == 1)
-                         * // Line 83 prints but, first rod is now [B], and it moves to rod [c]
-                         */
-
+                         // Third method call because it is not finished. BUT factoring the variable changes in the second call
+                       
                         System.out.println("Second call");
-
-                        // Why rod[C] is printed WHEN firstRod is called? Because at line 114 thirdRod
-                        // is at 2nd index call.
-                        // Why rod[B] is printed WHEN thirdRod is called? Because third rod is at 3rd
-                        // index at method call.
-
+                        // Why rod[C] is printed WHEN firstRod is called? Because at 2ndMethod firstRod  is at 2nd index call.
+                        // Why rod[B] is printed WHEN thirdRod is called? Because third rod is at 3rd index at 2ndmMthod call.
+                                                                    
+                        // Third recursive method call.
                         towerOfHanoi(numDisk - 1, secondRod, firstRod, thirdRod);
                         System.out.println(firstRod + " BOT");
                         System.out.println(secondRod + " BOT");
@@ -163,6 +166,5 @@ public class App {
  * 2^n-1 (2x2x2 = 8 - 1 = 7)
  * 
  *  Use multi dimensions when explaining.
- * 
  * 
  */
