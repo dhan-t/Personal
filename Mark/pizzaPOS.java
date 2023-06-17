@@ -1,25 +1,12 @@
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.Color;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JRadioButton;
-import javax.swing.JCheckBox;
-import javax.swing.JButton;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.*;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
-import java.awt.GridLayout;
+
+import java.awt.event.*;
 
 public class pizzaPOS {
 
-	private JFrame frame;
+	JFrame frame;
 
 	/**
 	 * Launch the application.
