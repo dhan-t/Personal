@@ -2,7 +2,7 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 
-public class POS {
+public class CashierLogin {
 
 	private JFrame frame;
 	private JPasswordField passwordField;
@@ -16,7 +16,7 @@ public class POS {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					POS window = new POS();
+					CashierLogin window = new CashierLogin();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -25,7 +25,7 @@ public class POS {
 		});
 	}
 
-	public POS() {
+	public CashierLogin() {
 		initialize();
 	}
 
@@ -84,7 +84,7 @@ public class POS {
 
 				if (authenticate(username, enteredPassword)) {
 					JOptionPane.showMessageDialog(frame, "Login successful!");
-					pizzaPOS pizzaWindow = new pizzaPOS();
+					pizzaShop pizzaWindow = new pizzaShop();
 					pizzaWindow.frame.setVisible(true);
 					frame.dispose();
 					// Perform actions after successful login
