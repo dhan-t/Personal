@@ -4,7 +4,7 @@ import javax.swing.border.LineBorder;
 
 import java.awt.event.*;
 
-public class pizzaPOS {
+public class pizzaShop {
 
 	JFrame frame;
 
@@ -15,7 +15,7 @@ public class pizzaPOS {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					pizzaPOS window = new pizzaPOS();
+					pizzaShop window = new pizzaShop();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -24,16 +24,10 @@ public class pizzaPOS {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
-	public pizzaPOS() {
+	public pizzaShop() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 
 	public String tomato = "Tomato";
 	public String greenp = "Green Pepper";
@@ -368,11 +362,11 @@ public class pizzaPOS {
 			}
 
 		});
-		
-				btnPrcsSelection.setBackground(new Color(159, 0, 0));
-				btnPrcsSelection.setFont(new Font("Arial", Font.BOLD, 15));
-				btnPrcsSelection.setBounds(175, 230, 300, 36);
-				frame.getContentPane().add(btnPrcsSelection);
+
+		btnPrcsSelection.setBackground(new Color(159, 0, 0));
+		btnPrcsSelection.setFont(new Font("Arial", Font.BOLD, 15));
+		btnPrcsSelection.setBounds(175, 230, 300, 36);
+		frame.getContentPane().add(btnPrcsSelection);
 
 		JLabel lblNewLabel_2 = new JLabel("Your Order:");
 		lblNewLabel_2.setBackground(new Color(159, 0, 0));
