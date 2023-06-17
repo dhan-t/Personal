@@ -72,14 +72,14 @@ public class pizzaPOS {
 		lblNewLabel.setBackground(new Color(255, 255, 255));
 		lblNewLabel.setForeground(new Color(0, 128, 255));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel.setFont(new Font("Tall Dark And Handsome", Font.PLAIN, 53));
-		lblNewLabel.setBounds(20, 0, 455, 55);
+		lblNewLabel.setFont(new Font("Tall Dark And Handsome", Font.PLAIN, 54));
+		lblNewLabel.setBounds(20, 4, 455, 67);
 		frame.getContentPane().add(lblNewLabel);
 
 		JPanel ToppingsTab = new JPanel();
 		ToppingsTab.setBorder(new LineBorder(new Color(0, 128, 255), 8, true));
 		ToppingsTab.setBackground(new Color(255, 255, 255));
-		ToppingsTab.setBounds(20, 56, 145, 232);
+		ToppingsTab.setBounds(20, 70, 145, 232);
 		frame.getContentPane().add(ToppingsTab);
 
 		JCheckBox chckbxTomato = new JCheckBox("Tomato");
@@ -181,7 +181,7 @@ public class pizzaPOS {
 		JPanel PizzaSizeTab = new JPanel();
 		PizzaSizeTab.setBorder(new LineBorder(new Color(0, 128, 255), 8, true));
 		PizzaSizeTab.setBackground(new Color(255, 255, 255));
-		PizzaSizeTab.setBounds(175, 56, 145, 149);
+		PizzaSizeTab.setBounds(175, 70, 145, 149);
 		frame.getContentPane().add(PizzaSizeTab);
 		PizzaSizeTab.setLayout(new GridLayout(0, 1, 0, 0));
 
@@ -216,7 +216,7 @@ public class pizzaPOS {
 		JPanel PizzaTab = new JPanel();
 		PizzaTab.setBorder(new LineBorder(new Color(0, 128, 255), 8, true));
 		PizzaTab.setBackground(new Color(255, 255, 255));
-		PizzaTab.setBounds(330, 56, 145, 149);
+		PizzaTab.setBounds(330, 70, 145, 149);
 		frame.getContentPane().add(PizzaTab);
 		PizzaTab.setLayout(new GridLayout(0, 1, 0, 0));
 
@@ -278,15 +278,6 @@ public class pizzaPOS {
 		lblTotalPrice.setFont(new Font("Arial", Font.BOLD, 12));
 		lblTotalPrice.setBounds(10, 95, 435, 27);
 		TotalTab.add(lblTotalPrice);
-
-		JLabel lblNewLabel_2 = new JLabel("Your Order:");
-		lblNewLabel_2.setBackground(new Color(159, 0, 0));
-		lblNewLabel_2.setForeground(new Color(159, 0, 0));
-		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 20));
-		lblNewLabel_2.setBounds(20, 313, 241, 24);
-		frame.getContentPane().add(lblNewLabel_2);
-		frame.setBounds(100, 100, 508, 554);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JButton btnPrcsSelection = new JButton("Complete Order");
 		btnPrcsSelection.setForeground(new Color(255, 255, 255));
 		btnPrcsSelection.addActionListener(new ActionListener() {
@@ -377,11 +368,20 @@ public class pizzaPOS {
 			}
 
 		});
+		
+				btnPrcsSelection.setBackground(new Color(159, 0, 0));
+				btnPrcsSelection.setFont(new Font("Arial", Font.BOLD, 15));
+				btnPrcsSelection.setBounds(175, 230, 300, 36);
+				frame.getContentPane().add(btnPrcsSelection);
 
-		btnPrcsSelection.setBackground(new Color(159, 0, 0));
-		btnPrcsSelection.setFont(new Font("Arial", Font.BOLD, 15));
-		btnPrcsSelection.setBounds(175, 216, 300, 36);
-		frame.getContentPane().add(btnPrcsSelection);
+		JLabel lblNewLabel_2 = new JLabel("Your Order:");
+		lblNewLabel_2.setBackground(new Color(159, 0, 0));
+		lblNewLabel_2.setForeground(new Color(159, 0, 0));
+		lblNewLabel_2.setFont(new Font("Arial", Font.BOLD, 20));
+		lblNewLabel_2.setBounds(20, 313, 241, 24);
+		frame.getContentPane().add(lblNewLabel_2);
+		frame.setBounds(100, 100, 508, 554);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 }
